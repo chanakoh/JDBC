@@ -1,0 +1,26 @@
+package com.kh.db.oracledb.CRUD;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class cafeexam {
+
+	public static void main(String[] args) throws SQLException {
+		String jdbcurl = "jdbc:oracle:thin:@localhost:1521:xe";
+		String username = "khcafe";
+		String password = "KHCAFE";
+		
+		Connection con = DriverManager.getConnection(jdbcurl, username, password);
+		String cafeQuery = "SELECT c_name FROM cafes";
+		PreparedStatement ps = con.prepareStatement(cafeQuery);
+		
+		System.out.println(cafeQuery);
+		
+		
+		
+
+	}
+
+}

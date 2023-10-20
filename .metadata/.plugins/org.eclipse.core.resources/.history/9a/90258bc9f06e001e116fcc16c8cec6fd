@@ -1,0 +1,16 @@
+package com.kh.dtoSample;
+
+import java.util.List;
+
+public class ProductsView {
+
+	public void displayProducts(List<ProductsDTO> products) {
+		for(ProductsDTO p : products) {
+			System.out.println("PRODUCT_ID"+p.getProductid());
+			System.out.println("PRODUCT_NAME"+p.getProductname());
+			System.out.println("CATEGORY"+p.getCategory());
+			System.out.println("PRICE"+p.getPrice());
+			System.out.println("STOCK_QUANTITY"+p.getStockqyantity());
+		}
+	}
+}

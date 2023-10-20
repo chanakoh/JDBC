@@ -1,0 +1,50 @@
+package com.kh.MVC.Singleton.update;
+
+public class ProductDTO {
+	private int productId;
+	private String productName;
+	private String category;
+	private Double price;
+	private int stockQyantity;
+	
+	public ProductDTO() {}   //기본생성자
+	public ProductDTO(int productId, String productName, String category, double price, int stockQyantity) {
+		this.productId = productId;
+		this.productName = productName;
+		this.category = category;
+		this.price = price;
+		this.stockQyantity = stockQyantity;
+	}
+	
+	public void setProductid(int productid) {
+		this.productId = productid;
+	}
+	public void setProductname(String productname) {
+		this.productName = productname;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+	public void setStockqyantity(int stockqyantity) {
+		this.stockQyantity = stockqyantity;
+	}
+	public int getProductid() {
+		return productId;
+	}
+	public String getProductname() {
+		return productName;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public Double getPrice() {
+		return price;
+	}
+	public int getStockqyantity() {
+		return stockQyantity;
+	}
+	
+}

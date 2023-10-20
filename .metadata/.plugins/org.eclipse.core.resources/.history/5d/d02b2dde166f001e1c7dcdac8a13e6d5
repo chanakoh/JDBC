@@ -1,0 +1,8 @@
+package com.kh.MVC.Singleton.update;
+
+public class ProductView {
+
+	public void updateProduct() {
+		
+	}
+}

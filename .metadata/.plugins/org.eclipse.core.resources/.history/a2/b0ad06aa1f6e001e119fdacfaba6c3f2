@@ -1,0 +1,44 @@
+package chap2_MVC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class cafeModel {
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String username = "khcafe";
+	String password = "KHCAFE";
+	
+	public void insertCafe(String C_NAME, String ADDRESS, String PHONE_NUMBER,String OPERATING_HOURS  ) {
+		try {
+			Connection con = DriverManager.getConnection(url, username, password);
+			String sql = "INSERT INT0 CAFES (C_NAME,ADDRESS,PHONE_NUMBER,OPERATING_HOURS)"
+					+ "VALUES(?,?,?,?)";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1,C_NAME);
+			ps.setString(2, ADDRESS);
+			ps.setString(3,PHONE_NUMBER);
+			ps.setString(4, OPERATING_HOURS);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	public void updateMenu(String DESCRIPTION, int MENU_ID, int CAFE_ID) {
+		try {
+			Connection con = DriverManager.getConnection(url, username, password);
+			String sql = "UPDATE MENU SET DESCRIPTION = ? WHERE MENU_ID = ? AND CAFE_ID = ?";
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setString(1,DESCRIPTION);
+			st.setInt(2, MENU_ID);
+			st.setInt(3, CAFE_ID);
+			st.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+}

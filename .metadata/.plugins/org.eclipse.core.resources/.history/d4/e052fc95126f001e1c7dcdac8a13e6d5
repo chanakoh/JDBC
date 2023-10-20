@@ -1,0 +1,15 @@
+package com.kh.MVC.Singleton.update;
+
+import java.sql.Connection;
+
+import com.kh.MVC.Singleton.Product.ProductsModel;
+
+public class productModel {
+	private static Connection connection;
+	private static ProductsModel productModel = null;
+	private static String DB_URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	private static String id = "khcafe";
+	private static String pw = "KHCAFE";
+	private ProductModel() {}
+	
+}

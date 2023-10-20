@@ -1,0 +1,25 @@
+package com.kh.db.oracledb.CRUD;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class updateSample {
+
+	public static void main(String[] args) throws SQLException {
+		String jdbcurl = "jdbc:oracle:thin:@localhost:1521:xe";
+		String username = "khbank";
+		String password = "kh1234";
+		
+		Connection con = DriverManager.getConnection(jdbcurl, username, password);
+		String ipdateQuery = "UPDATE BANK SET balance = ? WHERE account_number";
+		PreparedStatement updatePs = con.prepareStatement(ipdateQuery);
+		updatePs.setString(1,"1234567890");
+		updatePs.setDouble(2,2000.00);
+		int rowsUpdate = updatePs.executeUpdate();
+		System.out.println(rowsUpdate+"update되었습니다.");
+		
+	}
+
+}
