@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.kh.Bank&apos; to &apos;BankVO&apos;&#x0D;&#x0A;- Original project: &apos;chap3_DTO_DAO&apos;&#x0D;&#x0A;- Original element: &apos;com.kh.Bank&apos;&#x0D;&#x0A;- Renamed element: &apos;com.kh.BankVO&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Bank&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.kh{Bank.java[Bank" matchStrategy="1" name="BankVO" qualified="false" references="true" similarDeclarations="false" stamp="1698046114781" textual="false" version="1.0"/>
+</session>

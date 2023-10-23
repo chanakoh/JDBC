@@ -1,0 +1,79 @@
+package com.kh.user.VODAO;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+
+public class UserMain {
+
+	public static void main(String[] args) {
+		UserMain um = new UserMain();
+		um.selectAll();
+	}
+	public void selectAll() {
+		// 1. DB 연결 URL, USERNAME, PASSWORD
+		String jdbcURL = "jdbc:oracle:thin:@localhost:1521:xe";
+		String dbUserName = "KHCAFE";
+		String dbPassWord = "KHCAFE";
+		
+		try {
+			Connection connection = DriverManager.getConnection(jdbcURL, dbUserName, dbPassWord);
+			UserDAO userDAO = new UserDAO(connection);
+			
+			List<UserVO> users = userDAO.getAllUsers();
+			for(UserVO u : users) {
+				System.out.println("user id:"+u.getUserId());
+				System.out.println("user name:"+u.getUserName());
+				System.out.println("user email:"+u.getEmail());
+				System.out.println("user date: "+u.getRegDate());
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void insertRun() {
+		
+		}
+		/*		try {
+			Connection connection = DriverManager.getConnection(jdbcURL, dbUserName, dbPassWord);
+			UserDAO userDao = new UserDAO(connection);
+			
+			Scanner sc = new Scanner(System.in);
+			System.out.println("User id :");
+			int userid = sc.nextInt();
+			System.out.println("ID를 입력 해주세요 :");
+			String userName = sc.next();
+			System.out.println("회원가입이 거의다 끝났습니다.");
+			System.out.println("마지막으로 이메일 작성해주세요");
+			String email = sc.next();
+			Date regDate = new Date(); //현재 날짜와 시간을 사용한다는 의미
+			
+			//db에 담기위해 인스턴스 생성 후 작성받은 정보 저장하기
+			UserVO newUser = new UserVO();
+			newUser.setUserId(userid);
+			newUser.setUserName(userName);
+			newUser.setEmail(email);
+			newUser.setRegDate(regDate);
+			
+			//데이터가 정상적으로 들어갔는지 boolean을 사용해서 확인
+			if(userDao.createUser(newUser)) {//TRUE
+				System.out.println("유저가 성공적으로 등록되었습니다.");
+			}else {							//false
+				System.out.println("유저 등록에 실패하였습니다.");
+			}
+			//연결 닫기
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+		
+	}
+
+

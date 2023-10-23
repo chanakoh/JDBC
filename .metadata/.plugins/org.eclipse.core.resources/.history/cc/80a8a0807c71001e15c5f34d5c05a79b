@@ -1,0 +1,21 @@
+package com.kh;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class BankDAO {
+	private Connection connection;
+	public BankDAO(Connection connection) {
+		this.connection = connection;
+}
+	
+	public void updateBank( Double balance,String account_number ) throws SQLException {
+	String sql = "UPDATE BANK SET BALANCE = ? WHERE ACCOUNT_NUMBER = ? ";
+	PreparedStatement ps = connection.prepareStatement(sql);
+	ps.setDouble(1, balance);
+	ps.setString(2, account_number);
+	int update = ps.executeUpdate();
+	System.out.println("업데이트가 완료되었습니다.");
+	}
+}

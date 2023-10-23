@@ -1,0 +1,9 @@
+package com.kh.user.VODAO;
+
+public class UserVO {
+
+	public UserVO() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

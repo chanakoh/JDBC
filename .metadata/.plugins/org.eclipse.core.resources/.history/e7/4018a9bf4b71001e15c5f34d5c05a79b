@@ -1,0 +1,54 @@
+package com.kh.user.VODAO;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class UserDAO {
+	private Connection connection;
+	public UserDAO(Connection connection) {
+		this.connection = connection;
+	}
+	
+	public boolean createUser(UserVO user) {
+		String sql = "INSERT INTO USERINFO (user_id, user_name, email, reg_date)"
+				+ "VALUES(?,?,?,?)";
+		try {
+			PreparedStatement st = connection.prepareStatement(sql);
+			st.setInt(1,user.getUserId() );
+			st.setString(2,user.getUserName());
+			st.setString(3,user.getUserName());
+			st.setDate(4,new Date(user.getRegDate().getTime()));
+			
+			int rows = st.executeUpdate();
+			return rows > 0; // 값이 들어오면 0보다 커지므로 true가 됨
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public void selectUser(UserVO user) {
+		String sql = "SELECT * FROM USERINFO ";
+		try {
+			PreparedStatement st = connection.prepareStatement(sql);
+			ResultSet result = st.executeQuery();
+			while(result.next()) {
+				UserVO user = new UserVO();
+				user.setUserId(result.getInt("user_id"));
+				user.setUserName(result.getString("user_name"));
+				user.setEmail(result.getString("user_email"));
+				user.setRegDate(result.getDate("user_date"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}
