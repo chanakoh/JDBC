@@ -14,7 +14,7 @@ public class Main {
 		Connection connection = DriverManager.getConnection(jdbcURL, dbUserName, dbPassWord);
 		BankDAO bankdao = new BankDAO(connection);
 		
-		bankdao.plusBank(500.00,"9876543219");
+		bankdao.plusBank(700.00,"9876543219");
 		
 		//bankdao.minusBank(500.01, "3333444555");
 	}

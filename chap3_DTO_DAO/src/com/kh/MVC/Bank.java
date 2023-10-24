@@ -21,10 +21,18 @@ public class Bank {
 		System.out.println("전송할 금액을 입력하세요.");
 		double amount = sc.nextDouble();
 		
-		PreparedStatement a = con.prepareStatement("UPDATE BANK SET balance = balance - ? WHERE ACCOUNT_ID = ? )";
+		con.setAutoCommit(false); 
+		PreparedStatement a = con.prepareStatement("UPDATE BANK SET balance = balance - ? WHERE ACCOUNT_ID = ?" );
 		a.setDouble(1,amount);
 		a.setInt(2, fromAccountID);
 		a.executeUpdate();
+		con.commit();
+		
+		PreparedStatement b = con.prepareStatement("UPDATE BANK SET balance = balance + ? Where account_id = ?");
+		b.setDouble(1, amount);
+		b.setInt(2, toAccountID);
+		b.executeUpdate();
+		con.commit();
 		
 }
 }

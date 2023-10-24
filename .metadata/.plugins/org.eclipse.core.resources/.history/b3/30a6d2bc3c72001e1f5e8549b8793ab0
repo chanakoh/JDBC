@@ -1,0 +1,26 @@
+package com.kh.MVC;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class BankModel {
+	private Connection con;
+	String jdbcurl = "jdbc:oracle:thin:@localhost:1521:xe";
+	String username = "khbank";
+	String password = "kh1234";
+	public BankModel(Connection con) {
+		try {
+			con = DriverManager.getConnection(jdbcurl, username, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+
+public void bankwork() {
+	
+}
+}
